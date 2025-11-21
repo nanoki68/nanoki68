@@ -1,0 +1,13 @@
+<audio id="musica" autoplay loop muted>
+  <source src="35. GLACEIR (DELTARUNE Chapter 3+4 Soundtrack) - Toby Fox - Toby Fox.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="ativarSom()">🔊 Ativar Som</button>
+
+<script>
+function ativarSom() {
+  const audio = document.getElementById("musica");
+  audio.muted = false;
+  audio.play();
+}
+</script>
