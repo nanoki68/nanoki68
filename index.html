@@ -1,13 +1,64 @@
-<audio id="musica" autoplay loop muted>
-  <source src="35. GLACEIR (DELTARUNE Chapter 3+4 Soundtrack) - Toby Fox - Toby Fox.mp3" type="audio/mpeg">
-</audio>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relógio do Brasil</title>
 
-<button onclick="ativarSom()">🔊 Ativar Som</button>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e1e2f, #3a3a5a);
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 0;
+        }
 
-<script>
-function ativarSom() {
-  const audio = document.getElementById("musica");
-  audio.muted = false;
-  audio.play();
-}
-</script>
+        #clock {
+            font-size: 5rem;
+            font-weight: bold;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        audio {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Relógio Atual do Brasil</h1>
+
+    <div id="clock">00:00:00</div>
+
+    <!-- Música de fundo -->
+    <audio id="bgm" autoplay loop>
+        <source src="audio/GLACEIR.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
+
+    <script>
+        function atualizarRelogio() {
+            // Horário de Brasília (GMT-3, considerando horário padrão)
+            let agora = new Date().toLocaleTimeString("pt-BR", {
+                hour12: false,
+                timeZone: "America/Sao_Paulo"
+            });
+
+            document.getElementById("clock").textContent = agora;
+        }
+
+        // Atualiza a cada 500ms
+        setInterval(atualizarRelogio, 500);
+        atualizarRelogio();
+    </script>
+
+</body>
+</html>
